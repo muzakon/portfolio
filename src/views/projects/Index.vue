@@ -3,7 +3,7 @@
     <div>
       <h1 class="text-gray-200 text-[36px] title">Projects</h1>
       <div class="pt-8">
-        <div class="grid grid-rows-20 grid-flow-col gap-4">
+        <div class="gddrid grid-rows-20 grid-flow-col gap-4">
           <div v-for="(project, index) in computedProjects">
             <router-link
               :to="`/projects/${titleToUrl(project.title)}`"
