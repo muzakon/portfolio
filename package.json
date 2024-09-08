@@ -12,10 +12,11 @@
   },
   "dependencies": {
     "@splinetool/runtime": "^1.9.18",
-    "@vueuse/core": "^11.0.1",
+    "@vueuse/core": "^11.0.3",
     "ant-design-vue": "^4.2.3",
     "dayjs": "^1.11.13",
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
