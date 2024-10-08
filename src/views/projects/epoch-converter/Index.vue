@@ -4,7 +4,6 @@
       @back="() => $router.go(-1)"
       :title="$route.meta.title"
       :sub-title="$route.meta.subtitle"
-      :breadcrumb="{ routes }"
     />
 
     <div class="pt-5">
@@ -171,19 +170,7 @@ import { computed } from "vue";
 
 const timestampType = ref("s");
 const route = useRoute();
-const routes = [
-  {
-    path: "",
-    breadcrumbName: "Homepage",
-  },
-  {
-    path: "/projects",
-    breadcrumbName: "Projects",
-  },
-  {
-    breadcrumbName: route.meta.title,
-  },
-];
+
 const currentTimestamp = ref(getTimestamp());
 const updateTimestamp: Ref<number | null> = ref(null);
 

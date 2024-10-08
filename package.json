@@ -16,7 +16,9 @@
     "ant-design-vue": "^4.2.3",
     "dayjs": "^1.11.13",
     "vue": "^3.4.29",
-    "vue-router": "^4.4.3"
+    "vue-router": "^4.4.3",
+    "vue3-spline": "^1.0.0",
+    "vue3-typed-js": "^0.0.1"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
