@@ -3,11 +3,11 @@
     <div>
       <div
         class="absolute inset-0 grid justify-center -space-y-px z-[-1]"
-        :class="`auto-rows-[${boxSize}px]`"
+        :class="`auto-rows-[50px]`"
       >
         <div
           class="grid grid-flow-col"
-          :class="`auto-cols-[${boxSize}px]`"
+          :class="`auto-cols-[50px]`"
           v-for="row in numberOfRows"
         >
           <div
