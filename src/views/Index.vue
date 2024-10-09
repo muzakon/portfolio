@@ -31,15 +31,19 @@
       </h1>
 
       <div class="pt-4">
-        <VueTyped
-          :strings="[`I'm a fullstack developer.`]"
-          :typeSpeed="50"
-          :backSpeed="30"
-          :showCursor="true"
+        <Typed
+          :options="{
+            strings: [`I'm a fullstack developer.`],
+            typeSpeed: 50,
+            backSpeed: 30,
+            showCursor: true,
+            autoInsertCss: true,
+          }"
           style="display: inline-block"
-          :autoInsertCss="true"
           class="space-grotesk uppercase font-bold text-[20px] text-[#00dc82]"
-        ></VueTyped>
+        >
+          <span class="typing"> </span
+        ></Typed>
       </div>
 
       <div class="text-[14px] pt-8 text-[#bbb] information">
@@ -121,6 +125,7 @@
 <script setup lang="ts">
 import { ref, type Ref, onMounted, onUnmounted, nextTick } from "vue";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+import { Typed } from "@duskmoon/vue3-typed-js";
 
 const windowWidth = ref(0);
 const windowHeight = ref(0);
