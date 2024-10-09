@@ -1,8 +1,8 @@
 import { createWebHashHistory, createRouter } from "vue-router";
 
-import HomeView from "@/views/index.vue";
-import Projects from "@/views/projects/index.vue";
-import Experience from "@/views/experience/index.vue";
+import HomeView from "@/views/Index.vue";
+import Projects from "@/views/projects/Index.vue";
+import Experience from "@/views/experience/Index.vue";
 
 
 const routes = [
