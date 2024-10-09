@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="bg-black">
+  <div class="md:pt-0 pt-[48px]">
+    <div class="bg-black/70">
       <h1 class="text-gray-200 text-[36px] title">Experience</h1>
       <div class="pt-8">
         <a-timeline>
@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="mt-2 ml-4">
-              <ul class="list-disc text-[12px]">
+              <ul class="list-disc text-[13px]">
                 <li>
                   Acquired a strong foundation in software development,
                   algorithms, and system design.
@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="mt-2 ml-4">
-              <ul class="list-disc text-[12px]">
+              <ul class="list-disc text-[13px]">
                 <li>
                   Developed and maintained web applications using FastAPI,
                   Vue.js, Mysql, DigitalOcean and Netlify, enhancing user
@@ -81,7 +81,7 @@
               </div>
             </div>
             <div class="mt-2 ml-4">
-              <ul class="list-disc text-[12px]">
+              <ul class="list-disc text-[13px]">
                 <li>
                   Developed and maintained internal tools utilized by a team of
                   over 25 members, contributing to enhanced operational

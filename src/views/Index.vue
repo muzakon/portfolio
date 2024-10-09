@@ -1,6 +1,29 @@
 <template>
-  <div>
+  <div class="pt-[100px]">
     <div>
+      <div
+        class="absolute inset-0 grid justify-center -space-y-px z-[-1]"
+        :class="`auto-rows-[${boxSize}px]`"
+      >
+        <div
+          class="grid grid-flow-col"
+          :class="`auto-cols-[${boxSize}px]`"
+          v-for="row in numberOfRows"
+        >
+          <div
+            class="relative border border-green-900/10"
+            v-for="col in numberOfColumns"
+          >
+            <div
+              :id="`box-${row}-${col}`"
+              class="absolute inset-0 opacity-0 transition duration-1000 box"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
       <h1
         class="text-gray-200 text-[36px] title space-grotesk uppercase font-bold"
       >
@@ -40,7 +63,7 @@
       <div class="pt-8">
         <a
           href="#"
-          class="bg-[#00dc82] text-black text-[13px] font-semibold px-4 py-2 rounded-[5px] hover:bg-[#00b068] inline-block transition duration-200"
+          class="bg-[#00dc82] text-black text-[13px] font-semibold px-4 py-2 rounded-[5px] hover:bg-[#00b068] inline-block"
         >
           <div class="flex items-center">
             <svg
@@ -66,7 +89,7 @@
 
         <a
           href="#"
-          class="text-[#00dc82] text-[13px] font-semibold px-4 py-2 rounded-[5px] hover:bg-[#00dc82] hover:text-black inline-block ml-2 transition duration-200"
+          class="text-[#00dc82] text-[13px] font-semibold px-4 py-2 rounded-[5px] border border-black hover:border-[#00dc82] inline-block ml-2"
         >
           <div class="flex items-center">
             <svg
@@ -95,7 +118,66 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, type Ref, onMounted, onUnmounted, nextTick } from "vue";
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+
+const windowWidth = ref(0);
+const windowHeight = ref(0);
+const numberOfColumns = ref(0);
+const boxColorizeChance = 0.01;
+const numberOfRows = ref(0);
+const boxSize = ref(50);
+const boxInterval: Ref<number | null> = ref(null);
+const breakpoints = useBreakpoints(breakpointsTailwind);
+
+onMounted(async () => {
+  if (window.document) {
+    windowWidth.value = window.innerWidth;
+    windowHeight.value = window.innerHeight;
+
+    numberOfRows.value = Math.floor(windowHeight.value / boxSize.value);
+    numberOfColumns.value = Math.floor(windowWidth.value / boxSize.value);
+
+    boxInterval.value = setInterval(() => {
+      for (let i = 0; i < numberOfColumns.value; i++) {
+        for (let y = 0; y < numberOfRows.value; y++) {
+          const box = document.getElementById(`box-${y}-${i}`);
+          if (box) {
+            const random = Math.random();
+
+            if (box.classList.contains("opacity-100")) {
+              box.classList.toggle("opacity-100");
+            }
+
+            if (
+              random <= boxColorizeChance &&
+              breakpoints.greater("md").value
+            ) {
+              box.classList.toggle("opacity-100");
+            }
+          }
+        }
+      }
+    }, 3000);
+  }
+});
+
+onUnmounted(() => {
+  if (boxInterval.value) {
+    clearInterval(boxInterval.value);
+  }
+});
+
+nextTick(() => {
+  window.addEventListener("resize", onResizeWindow);
+});
+
+function onResizeWindow() {
+  windowWidth.value = window.innerWidth;
+  windowHeight.value = window.innerHeight;
+}
+</script>
 
 <style scoped>
 .information {

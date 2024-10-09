@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="md:pt-0 pt-[48px]">
     <div>
       <h1 class="text-gray-200 text-[36px] title">Projects</h1>
       <div class="pt-8">

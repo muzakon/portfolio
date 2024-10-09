@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { Application } from "@splinetool/runtime";
-import ArtPlum from "./components/shared/ArtPlum.vue";
 import Header from "./components/shared/Header.vue";
 import { theme } from "ant-design-vue";
 import { useDark, useToggle } from "@vueuse/core";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 
 const isDark = useDark({
   selector: "body",
@@ -12,7 +10,6 @@ const isDark = useDark({
   valueDark: "dark",
   valueLight: "light",
 });
-const canvas = ref(null);
 
 const toggleDark = useToggle(isDark);
 onMounted(async () => {
@@ -32,15 +29,9 @@ onMounted(async () => {
     }"
   >
     <main>
-      <!-- <Vue3Spline
-        :scene="{
-          url: 'https://prod.spline.design/FcXmeBqlhGW6OLW2/scene.splinecode',
-        }"
-      /> -->
-      <!-- <ArtPlum></ArtPlum> -->
       <Header />
       <div
-        class="container mx-auto max-w-[940px] pt-[120px] relative"
+        class="container mx-auto max-w-[940px] md:pt-[220px] pt-[50px] md:px-0 px-[32px] relative"
         style="z-index: 5"
       >
         <Transition name="fade" mode="out-in">
